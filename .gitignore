@@ -1,2 +1,6 @@
 .next
 node_modules
+out
+.firebase
+.firebaserc
+.idea

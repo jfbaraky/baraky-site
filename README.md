@@ -2,6 +2,7 @@
 
 ## Technologies
 - React.js
+    - styled-components
 - Next.js
 - ES6
 - Heroku
