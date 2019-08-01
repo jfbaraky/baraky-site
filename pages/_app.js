@@ -4,7 +4,7 @@ import { GlobalStyle } from "../src/components/styles";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
+    let pageProps = {};
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
