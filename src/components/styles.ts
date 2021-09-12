@@ -29,24 +29,24 @@ const theme = {
     primaryDark: "#81C784",
     primaryLight: "#C8E6C9",
     secondary: "#FFE082",
-    background: "#121212"
-  }
+    background: "#121212",
+  },
 };
 
-const Text = styled.p`
+const Text = styled.p<{ center?: boolean; gutter?: boolean }>`
   font-size: 14px;
   margin: 0;
   color: #ffffff;
-  ${props => (props.center ? "text-align: center;" : "")}
-  ${props => (props.gutter ? "margin-bottom: 10px;" : "")}
+  ${(props) => (props.center ? "text-align: center;" : "")}
+  ${(props) => (props.gutter ? "margin-bottom: 10px;" : "")}
 `;
 
-const Title = styled.p`
+const Title = styled.p<{ center?: boolean; gutter?: boolean }>`
   font-size: 20px;
   margin: 0;
   color: #ffffff;
-  ${props => (props.center ? "text-align: center;" : "")}
-  ${props => (props.gutter ? "margin-bottom: 10px;" : "")}
+  ${(props) => (props.center ? "text-align: center;" : "")}
+  ${(props) => (props.gutter ? "margin-bottom: 10px;" : "")}
 `;
 
 const BannerTitleContainer = styled.div`
@@ -56,38 +56,36 @@ const BannerTitleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
-const BannerTitle = styled.h1`
+const BannerTitle = styled.h1<{ loaded?: boolean; delay?: string | number }>`
   margin: 0;
   text-transform: uppercase;
   font-weight: 100;
-  opacity: ${props => (props.loaded ? "1.0" : "0.0")};
-  transform: translateY(${props => (props.loaded ? "0px" : "10px")});
-  transition: all 500ms ease-in-out ${props => props.delay || "0"}s;
+  opacity: ${(props) => (props.loaded ? "1.0" : "0.0")};
+  transform: translateY(${(props) => (props.loaded ? "0px" : "10px")});
+  transition: all 500ms ease-in-out ${(props) => props.delay || "0"}s;
 `;
 
-const BannerSubtitle = styled.h2`
+const BannerSubtitle = styled.h2<{ loaded?: boolean; delay?: string | number }>`
   margin: 0;
   opacity: 0.5;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 400;
-  opacity: ${props => (props.loaded ? "0.5" : "0.0")};
-  transform: translateY(${props => (props.loaded ? "0px" : "10px")});
-  transition: all 500ms ease-in-out ${props => props.delay || "0"}s;
+  opacity: ${(props) => (props.loaded ? "0.5" : "0.0")};
+  transform: translateY(${(props) => (props.loaded ? "0px" : "10px")});
+  transition: all 500ms ease-in-out ${(props) => props.delay || "0"}s;
 `;
 
-const BannerPresentation = styled.h2`
+const BannerPresentation = styled.h2<{ loaded?: boolean; delay?: string | number }>`
   margin: 0;
   color: ${theme.colors.primary};
   font-size: 16px;
   text-transform: uppercase;
   font-weight: 100;
-  opacity: ${props => (props.loaded ? "1.0" : "0.0")};
-  transform: translateY(${props => (props.loaded ? "0px" : "10px")});
-  transition: all 500ms ease-in-out ${props => props.delay || "0"}s;
+  opacity: ${(props) => (props.loaded ? "1.0" : "0.0")};
+  transform: translateY(${(props) => (props.loaded ? "0px" : "10px")});
+  transition: all 500ms ease-in-out ${(props) => props.delay || "0"}s;
 `;
-
-
 
 const Background = styled.div`
   display: flex;
@@ -100,7 +98,7 @@ const Background = styled.div`
   box-sizing: border-box;
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ paddingTop?: string }>`
   width: 100%;
   max-width: 1200px;
   background-color: rgba(255, 255, 255, 0.05);
@@ -108,7 +106,7 @@ const Container = styled.div`
   padding: 20px;
   box-sizing: border-box;
   border-radius: 5px;
-  ${props => (props.paddingTop ? `padding-top: ${props.paddingTop};` : "")}
+  ${(props) => (props.paddingTop ? `padding-top: ${props.paddingTop};` : "")}
   :not(:first-child) {
     margin-top: 0;
   }
@@ -142,31 +140,35 @@ const PictureContainer = styled.div`
   }
 `;
 
-const PicureWrapper = styled.div`
+const PictureWrapper = styled.div<{
+  loaded?: boolean;
+  delay?: string | number;
+  position: [left: number | string, top: number | string];
+}>`
   position: absolute;
-  left: ${props => props.position[0]};
-  top: ${props => props.position[1]};
+  left: ${(props) => props.position[0]};
+  top: ${(props) => props.position[1]};
   filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
-  opacity: ${props => (props.loaded ? "1.0" : "0.0")};
-  transform: translateY(${props => (props.loaded ? "0px" : "10px")});
-  transition: all 500ms ease-in-out ${props => props.delay || "0"}s;
+  opacity: ${(props) => (props.loaded ? "1.0" : "0.0")};
+  transform: translateY(${(props) => (props.loaded ? "0px" : "10px")});
+  transition: all 500ms ease-in-out ${(props) => props.delay || "0"}s;
 `;
 
-const Picture = styled.img`
+const Picture = styled.img<{ size?: string }>`
   position: relative;
-  width: ${props => props.size || "300px"};
-  height: ${props => props.size || "300px"};
+  width: ${(props) => props.size || "300px"};
+  height: ${(props) => props.size || "300px"};
   overflow: hidden;
   clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
   z-index: 1000;
 `;
 
-const SocialContainer = styled.div`
+const SocialContainer = styled.div<{ loaded?: boolean; delay?: string | number }>`
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  opacity: ${props => (props.loaded ? "1" : "0.0")};
-  transition: all 250ms ease-in-out ${props => props.delay || "0"}s;
+  opacity: ${(props) => (props.loaded ? "1" : "0.0")};
+  transition: all 250ms ease-in-out ${(props) => props.delay || "0"}s;
 `;
 
 const SocialItem = styled.a`
@@ -187,19 +189,19 @@ const SocialItem = styled.a`
   }
 `;
 
-const HobbieContainer = styled.div`
+const HobbyContainer = styled.div`
   display: flex;
-  justify-content: center;  
+  justify-content: center;
   :not(:first-child) {
     margin-left: 20px;
   }
 `;
 
-const HobbieItem = styled.a`
+const HobbyItem = styled.a`
   color: ${theme.colors.primary};
   position: relative;
-  height: 30px; 
-  width: 50px; 
+  height: 30px;
+  width: 50px;
 `;
 
 export {
@@ -208,7 +210,7 @@ export {
   GlobalStyle,
   Container,
   Picture,
-  PicureWrapper,
+  PictureWrapper,
   Banner,
   Title,
   PictureContainer,
@@ -218,6 +220,6 @@ export {
   BannerPresentation,
   SocialContainer,
   SocialItem,
-  HobbieContainer,
-  HobbieItem
+  HobbyContainer,
+  HobbyItem,
 };
