@@ -69,7 +69,7 @@ const Home = () => {
           </PictureContainer>
           <BannerTitleContainer>
             <BannerPresentation delay={0.5} loaded={pageLoaded}>
-              {generatedTitle}
+              <strong>{generatedTitle}</strong>
             </BannerPresentation>
             <BannerTitle delay={1} loaded={pageLoaded}>
               João Fernando <strong>{generatedName}</strong>
