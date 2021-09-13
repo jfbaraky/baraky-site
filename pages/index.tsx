@@ -16,13 +16,18 @@ import {
   SocialContainer,
   SocialItem,
   HobbyContainer,
-  HobbyItem
+  HobbyItem,
 } from "../src/components/styles";
+import { startPool } from "../src/utils/geneticGenerator";
 
 const Home = () => {
   const [pageLoaded, setPageLoaded] = useState(false);
+  const [generatedTitle, setGeneratedTitle] = useState("");
+  const [generatedName, setGeneratedName] = useState("");
   useEffect(() => {
     setPageLoaded(true);
+    startPool(10, setGeneratedTitle, `Hello! My name is`);
+    startPool(10, setGeneratedName, `Baraky`);
   }, []);
   return (
     <React.Fragment>
@@ -64,10 +69,10 @@ const Home = () => {
           </PictureContainer>
           <BannerTitleContainer>
             <BannerPresentation delay={0.5} loaded={pageLoaded}>
-              Hello, I&apos;m
+              {generatedTitle}
             </BannerPresentation>
             <BannerTitle delay={1} loaded={pageLoaded}>
-              João Fernando <strong>Baraky</strong>
+              João Fernando <strong>{generatedName}</strong>
             </BannerTitle>
             <BannerSubtitle delay={1.2} loaded={pageLoaded}>
               Javascript developer and mechatronics engineer
