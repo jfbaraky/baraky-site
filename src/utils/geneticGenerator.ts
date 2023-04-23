@@ -59,7 +59,8 @@ const reproduce = (father: string[], mother: string[]): string[] => {
 const handleGeneration = (
   pool: string[][],
   goal: string,
-  onNextGeneration: (value: string) => void
+  onNextGeneration: (value: string) => void,
+  stepTime: number
 ) => {
   // Calculating the fitness for each one of the candidates
   const fitness = pool.map((item) => calcFitness(item, goal));
@@ -99,13 +100,14 @@ const handleGeneration = (
   });
 
   // Handling next generation
-  setTimeout(() => handleGeneration(newGeneration, goal, onNextGeneration), 5);
+  setTimeout(() => handleGeneration(newGeneration, goal, onNextGeneration, stepTime), stepTime);
 };
 
 export const startPool = (
   poolSize: number,
   onNextGeneration: (value: string) => void,
-  goal: string
+  goal: string,
+  stepTime = 1
 ) => {
   // Generating a pool of random candidates
   const pool: string[][] = [];
@@ -119,5 +121,5 @@ export const startPool = (
 
   onNextGeneration(pool[0].join(""));
   // Start generations
-  setTimeout(() => handleGeneration(pool, goal, onNextGeneration), 2000);
+  setTimeout(() => handleGeneration(pool, goal, onNextGeneration, stepTime), 2000);
 };

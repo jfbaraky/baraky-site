@@ -35,17 +35,17 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           {/* Favicon and icons */}
-          <link rel="shortcut icon" href="/static/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.ico" />
           <link
             rel="icon"
             type="image/png"
-            href="/static/favicon-32x32.png"
+            href="/favicon-32x32.png"
             sizes="32x32"
           />
           <link
             rel="icon"
             type="image/png"
-            href="/static/favicon-16x16.png"
+            href="/favicon-16x16.png"
             sizes="16x16"
           />
           {/* Manifest */}

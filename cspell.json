@@ -1,0 +1,11 @@
+{
+  "ignorePaths": ["node_modules/**", "cspell.json", "package.json"],
+  "words": ["antd", "cloudinary", "firestore", "localstorage", "rollbar"],
+  "languageSettings": [
+    {
+      "languageId": "*",
+      "locale": "en-US, pt-BR",
+      "dictionaries": ["javascript", "typescript"]
+    }
+  ]
+}
