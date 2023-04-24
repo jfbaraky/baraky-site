@@ -13,7 +13,7 @@ import {
 } from '../src/components/styles';
 import { startPool } from '../src/utils/geneticGenerator';
 import { NextSeo } from 'next-seo';
-import { FaGithubAlt, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaGithubAlt, FaLinkedinIn, FaTwitter, FaInstagram, FaMediumM } from 'react-icons/fa';
 import { TbMeeple } from 'react-icons/tb';
 
 const Home = () => {
@@ -115,6 +115,15 @@ const Home = () => {
                 time={4}
               >
                 <TbMeeple size="50px" />
+              </SocialItem>
+              <SocialItem
+                href="https://medium.com/@jfbaraky"
+                title="My Medium"
+                rel="noopener"
+                target="_blank"
+                time={1.5}
+              >
+                <FaMediumM size="50px" />
               </SocialItem>
             </SocialContainer>
           </BannerTitleContainer>

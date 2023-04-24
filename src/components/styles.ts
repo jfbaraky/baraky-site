@@ -104,9 +104,10 @@ export const Banner = styled.div`
 `;
 
 export const PictureContainer = styled.div`
-  
   height: 100%;
   margin-right: 50px;
+  display: flex;
+  align-items: center;
   @media screen and (max-width: 992px) {
     margin-right: 0px;
   }
@@ -129,6 +130,9 @@ export const SocialContainer = styled.div<{ loaded?: boolean; delay?: string | n
   margin-top: 20px;
   flex-wrap: wrap;
   gap: 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const SocialItem = styled.a<{ time?: number }>`
@@ -136,8 +140,8 @@ export const SocialItem = styled.a<{ time?: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25%;
-  height: 100px;
+  height: 120px;
+  width: 120px;
   border-radius: 150px;
   background-color: ${theme.colors.primary};
   color: ${theme.colors.background};
