@@ -57,7 +57,7 @@ const Home = () => {
       />
       <Background>
         <Banner>
-          <PictureContainer>
+          <PictureContainer delay={0.2} loaded={pageLoaded}>
             <Picture src="/selfie.png" alt="Face photo of João Baraky" title="That's me!" />
           </PictureContainer>
           <BannerTitleContainer>
@@ -109,7 +109,7 @@ const Home = () => {
               </SocialItem>
               <SocialItem
                 href="https://www.instagram.com/contando.os.pontos"
-                title="Boardgames Instagram"
+                title="Boardgame Instagram"
                 rel="noopener"
                 target="_blank"
                 time={4}

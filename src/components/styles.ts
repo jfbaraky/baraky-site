@@ -43,11 +43,14 @@ export const BannerTitleContainer = styled.div`
 export const BannerTitle = styled.h1<{ loaded?: boolean; delay?: string | number }>`
   margin: 0;
   text-transform: uppercase;
-  font-weight: 100;
+  font-weight: 50;
   opacity: ${(props) => (props.loaded ? '1.0' : '0.0')};
   transform: translateY(${(props) => (props.loaded ? '0px' : '10px')});
   transition: all 500ms ease-in-out ${(props) => props.delay || '0'}s;
   line-height: 2;
+  strong {
+    font-weight: 900;
+  }
 `;
 
 export const BannerSubtitle = styled.h2<{ loaded?: boolean; delay?: string | number }>`
@@ -103,11 +106,13 @@ export const Banner = styled.div`
   }
 `;
 
-export const PictureContainer = styled.div`
+export const PictureContainer = styled.div<{ loaded?: boolean; delay?: string | number }>`
   height: 100%;
   margin-right: 50px;
   display: flex;
   align-items: center;
+  opacity: ${(props) => (props.loaded ? '1' : '0.0')};
+  transition: all 250ms ease-in-out ${(props) => props.delay || '0'}s;
   @media screen and (max-width: 992px) {
     margin-right: 0px;
   }
