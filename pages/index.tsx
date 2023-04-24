@@ -28,7 +28,7 @@ const Home = () => {
         : `${generatedName} Website | Javascript developer and Mechatronics engineer`,
     [generatedName],
   );
-  const pageDescription = `Greetings! I'm Baraky, and I'm passionate about both Technology, development, games and cats. Follow me on social media to stay in touch!`;
+  const pageDescription = `Greetings! I'm Baraky, and I'm passionate about technology, development, games and cats. Follow me on social media to stay in touch!`;
 
   // Hooks
   useEffect(() => {
