@@ -68,22 +68,43 @@ const Home = () => {
               Javascript developer and mechatronics engineer
             </BannerSubtitle>
             <SocialContainer delay={1.4} loaded={pageLoaded}>
-              <SocialItem href="https://www.linkedin.com/in/baraky" rel="noopener" target="_blank">
+              <SocialItem
+                href="https://www.linkedin.com/in/baraky"
+                rel="noopener"
+                target="_blank"
+                time={2.5}
+              >
                 <FaLinkedinIn size="50px" />
               </SocialItem>
-              <SocialItem href="https://github.com/jfbaraky" rel="noopener" target="_blank">
+              <SocialItem
+                href="https://github.com/jfbaraky"
+                rel="noopener"
+                target="_blank"
+                time={3}
+              >
                 <FaGithubAlt size="50px" />
               </SocialItem>
-              <SocialItem href="https://www.instagram.com/jfbaraky" rel="noopener" target="_blank">
+              <SocialItem
+                href="https://www.instagram.com/jfbaraky"
+                rel="noopener"
+                target="_blank"
+                time={2}
+              >
                 <FaInstagram size="50px" />
               </SocialItem>
-              <SocialItem href="https://twitter.com/jfbaraky" rel="noopener" target="_blank">
+              <SocialItem
+                href="https://twitter.com/jfbaraky"
+                rel="noopener"
+                target="_blank"
+                time={3.5}
+              >
                 <FaTwitter size="50px" />
               </SocialItem>
               <SocialItem
                 href="https://www.instagram.com/contando.os.pontos"
                 rel="noopener"
                 target="_blank"
+                time={4}
               >
                 <TbMeeple size="50px" />
               </SocialItem>

@@ -5,7 +5,7 @@
  * @returns
  */
 const calcFitness = (item: string[], goal: string): number => {
-  const code = goal.split("").map((letter) => letter.charCodeAt(0));
+  const code = goal.split('').map((letter) => letter.charCodeAt(0));
   let totalFitness = 0;
   for (let index = 0; index < goal.length; index += 1) {
     totalFitness += Math.abs(item[index].charCodeAt(0) - code[index]);
@@ -14,12 +14,10 @@ const calcFitness = (item: string[], goal: string): number => {
 };
 
 // Generate random letter on the valid range
-const generateRandomLetter = () =>
-  String.fromCharCode(Math.floor(Math.random() * 127) + 31);
+const generateRandomLetter = () => String.fromCharCode(Math.floor(Math.random() * 25) + 65);
 
 // Average of numbers of the array
-const average = (arr: number[]): number =>
-  arr.reduce((p, c) => p + c, 0) / arr.length;
+const average = (arr: number[]): number => arr.reduce((p, c) => p + c, 0) / arr.length;
 
 // Randomly define mutations for the string
 const mutate = (str: string[]): string[] => {
@@ -37,9 +35,7 @@ const mutate = (str: string[]): string[] => {
   const mutation = Math.floor(Math.random() * 3) - 1;
   const mutatedChar = Math.floor(Math.random() * str.length);
 
-  str[mutatedChar] = String.fromCharCode(
-    mutation + str[mutatedChar].charCodeAt(0)
-  );
+  str[mutatedChar] = String.fromCharCode(mutation + str[mutatedChar].charCodeAt(0));
 
   return str;
 };
@@ -60,7 +56,7 @@ const handleGeneration = (
   pool: string[][],
   goal: string,
   onNextGeneration: (value: string) => void,
-  stepTime: number
+  stepTime: number,
 ) => {
   // Calculating the fitness for each one of the candidates
   const fitness = pool.map((item) => calcFitness(item, goal));
@@ -69,7 +65,7 @@ const handleGeneration = (
   if (fitness.some((fit) => fit === 0)) {
     // Perfect score found
     const perfectIndex = fitness.indexOf(0);
-    onNextGeneration(pool[perfectIndex].join(""));
+    onNextGeneration(pool[perfectIndex].join(''));
     // Stopping generations
     return null;
   }
@@ -80,21 +76,16 @@ const handleGeneration = (
     fitness: fitness[index],
   }));
   const averageFitness = average(fitness);
-  let bestOfGeneration = generation.filter(
-    (item) => item.fitness <= averageFitness
-  );
+  let bestOfGeneration = generation.filter((item) => item.fitness <= averageFitness);
 
   // Filling all the vacancies with the best candidates
-  bestOfGeneration = pool.map(
-    (_, index) => bestOfGeneration[index % bestOfGeneration.length]
-  );
+  bestOfGeneration = pool.map((_, index) => bestOfGeneration[index % bestOfGeneration.length]);
 
-  onNextGeneration(bestOfGeneration[0].item.join(""));
+  onNextGeneration(bestOfGeneration[0].item.join(''));
 
   // Generating next generation
   const newGeneration = bestOfGeneration.map((candidate) => {
-    const mother =
-      bestOfGeneration[Math.floor(Math.random() * bestOfGeneration.length)];
+    const mother = bestOfGeneration[Math.floor(Math.random() * bestOfGeneration.length)];
     const children = reproduce(candidate.item, mother.item);
     return mutate(children);
   });
@@ -107,19 +98,23 @@ export const startPool = (
   poolSize: number,
   onNextGeneration: (value: string) => void,
   goal: string,
-  stepTime = 1
+  stepTime = 1,
 ) => {
   // Generating a pool of random candidates
   const pool: string[][] = [];
 
   for (let count = 0; count < poolSize; count += 1) {
-    pool[count] = goal.split("");
+    pool[count] = goal.split('');
     for (let index = 0; index < goal.length; index += 1) {
+      if (goal[index] === ' ' || goal[index] === '!') {
+        pool[count][index] = goal[index];
+        continue;
+      } 
       pool[count][index] = generateRandomLetter();
     }
   }
 
-  onNextGeneration(pool[0].join(""));
+  onNextGeneration(pool[0].join(''));
   // Start generations
   setTimeout(() => handleGeneration(pool, goal, onNextGeneration, stepTime), 2000);
 };

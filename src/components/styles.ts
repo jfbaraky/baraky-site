@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     overflow-x: hidden;
   }
-`;
+` as any;
 
 export const theme = {
   colors: {
@@ -32,7 +32,6 @@ export const theme = {
     background: '#121212',
   },
 };
-
 
 export const BannerTitleContainer = styled.div`
   color: white;
@@ -48,6 +47,7 @@ export const BannerTitle = styled.h1<{ loaded?: boolean; delay?: string | number
   opacity: ${(props) => (props.loaded ? '1.0' : '0.0')};
   transform: translateY(${(props) => (props.loaded ? '0px' : '10px')});
   transition: all 500ms ease-in-out ${(props) => props.delay || '0'}s;
+  line-height: 2;
 `;
 
 export const BannerSubtitle = styled.h2<{ loaded?: boolean; delay?: string | number }>`
@@ -59,6 +59,7 @@ export const BannerSubtitle = styled.h2<{ loaded?: boolean; delay?: string | num
   opacity: ${(props) => (props.loaded ? '0.5' : '0.0')};
   transform: translateY(${(props) => (props.loaded ? '0px' : '10px')});
   transition: all 500ms ease-in-out ${(props) => props.delay || '0'}s;
+  line-height: 1;
 `;
 
 export const BannerPresentation = styled.h2<{ loaded?: boolean; delay?: string | number }>`
@@ -86,7 +87,6 @@ export const Background = styled.div`
   box-sizing: border-box;
 `;
 
-
 export const Banner = styled.div`
   height: 80vh;
   width: 100%;
@@ -104,10 +104,8 @@ export const Banner = styled.div`
 `;
 
 export const PictureContainer = styled.div`
-  border-radius: 300px;
-  height: 500px;
-  overflow: hidden;
-
+  
+  height: 100%;
   margin-right: 50px;
   @media screen and (max-width: 992px) {
     margin-right: 0px;
@@ -119,6 +117,7 @@ export const Picture = styled.img<{ size?: string }>`
   overflow: hidden;
   z-index: 1000;
   height: 500px;
+  border-radius: 300px;
 `;
 
 export const SocialContainer = styled.div<{ loaded?: boolean; delay?: string | number }>`
@@ -132,7 +131,7 @@ export const SocialContainer = styled.div<{ loaded?: boolean; delay?: string | n
   gap: 20px;
 `;
 
-export const SocialItem = styled.a`
+export const SocialItem = styled.a<{ time?: number }>`
   position: relative;
   display: flex;
   justify-content: center;
@@ -140,9 +139,26 @@ export const SocialItem = styled.a`
   width: 25%;
   height: 100px;
   border-radius: 150px;
-  background-color: ${theme.colors.primaryDark};
+  background-color: ${theme.colors.primary};
   color: ${theme.colors.background};
   :hover {
     background-color: ${theme.colors.primaryLight};
+  }
+
+  animation: float ${(props) => props.time || 6}s ease-in-out infinite;
+
+  @keyframes float {
+    0% {
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+      transform: translatey(0px);
+    }
+    50% {
+      box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+      transform: translatey(-5px);
+    }
+    100% {
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+      transform: translatey(0px);
+    }
   }
 `;
