@@ -46,7 +46,7 @@ const Home = () => {
           url: 'https://baraky.com.br',
           title: pageTitle,
           description: pageDescription,
-          images: [{ url: '/working-robot.png' }],
+          images: [{ url: 'https://baraky.com.br/working-robot.png' }],
           siteName: pageTitle,
         }}
         twitter={{
