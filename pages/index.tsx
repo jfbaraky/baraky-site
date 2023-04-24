@@ -22,10 +22,13 @@ const Home = () => {
   const [generatedTitle, setGeneratedTitle] = useState('');
   const [generatedName, setGeneratedName] = useState('');
   const pageTitle = React.useMemo(
-    () => (typeof window === 'undefined' ? 'Baraky Website' : `${generatedName} Website`),
+    () =>
+      typeof window === 'undefined'
+        ? 'Baraky Website | Javascript developer and Mechatronics engineer'
+        : `${generatedName} Website | Javascript developer and Mechatronics engineer`,
     [generatedName],
   );
-  const pageDescription = 'Follow me on all my social networks to know more about me';
+  const pageDescription = `Greetings! I'm Baraky, and I'm passionate about both Technology, development, games and cats. Follow me on social media to stay in touch!`;
 
   // Hooks
   useEffect(() => {
@@ -55,7 +58,7 @@ const Home = () => {
       <Background>
         <Banner>
           <PictureContainer>
-            <Picture src="/selfie.png" />
+            <Picture src="/selfie.png" alt="Face photo of João Baraky" title="That's me!" />
           </PictureContainer>
           <BannerTitleContainer>
             <BannerPresentation delay={0.5} loaded={pageLoaded}>
@@ -65,11 +68,12 @@ const Home = () => {
               João Fernando <strong>{generatedName}</strong>
             </BannerTitle>
             <BannerSubtitle delay={1.2} loaded={pageLoaded}>
-              Javascript developer and mechatronics engineer
+              Javascript developer and Mechatronics engineer
             </BannerSubtitle>
             <SocialContainer delay={1.4} loaded={pageLoaded}>
               <SocialItem
                 href="https://www.linkedin.com/in/baraky"
+                title="My LinkedIn"
                 rel="noopener"
                 target="_blank"
                 time={2.5}
@@ -78,6 +82,7 @@ const Home = () => {
               </SocialItem>
               <SocialItem
                 href="https://github.com/jfbaraky"
+                title="My GitHub"
                 rel="noopener"
                 target="_blank"
                 time={3}
@@ -86,6 +91,7 @@ const Home = () => {
               </SocialItem>
               <SocialItem
                 href="https://www.instagram.com/jfbaraky"
+                title="My Instagram"
                 rel="noopener"
                 target="_blank"
                 time={2}
@@ -94,6 +100,7 @@ const Home = () => {
               </SocialItem>
               <SocialItem
                 href="https://twitter.com/jfbaraky"
+                title="My Twitter"
                 rel="noopener"
                 target="_blank"
                 time={3.5}
@@ -102,6 +109,7 @@ const Home = () => {
               </SocialItem>
               <SocialItem
                 href="https://www.instagram.com/contando.os.pontos"
+                title="Boardgames Instagram"
                 rel="noopener"
                 target="_blank"
                 time={4}
