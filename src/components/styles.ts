@@ -47,7 +47,7 @@ export const BannerTitle = styled.h1<{ loaded?: boolean; delay?: string | number
   opacity: ${(props) => (props.loaded ? '1.0' : '0.0')};
   transform: translateY(${(props) => (props.loaded ? '0px' : '10px')});
   transition: all 500ms ease-in-out ${(props) => props.delay || '0'}s;
-  line-height: 2;
+  margin-bottom: 12px;
   strong {
     font-weight: 900;
   }
@@ -62,7 +62,7 @@ export const BannerSubtitle = styled.h2<{ loaded?: boolean; delay?: string | num
   opacity: ${(props) => (props.loaded ? '0.5' : '0.0')};
   transform: translateY(${(props) => (props.loaded ? '0px' : '10px')});
   transition: all 500ms ease-in-out ${(props) => props.delay || '0'}s;
-  line-height: 1;
+  margin-bottom: 12px;
 `;
 
 export const BannerPresentation = styled.h2<{ loaded?: boolean; delay?: string | number }>`
@@ -88,6 +88,9 @@ export const Background = styled.div`
   min-height: 100%;
   padding: 10px;
   box-sizing: border-box;
+  @media screen and (max-width: 992px) {
+    padding-bottom: 0px;
+  }
 `;
 
 export const Banner = styled.div`
@@ -101,7 +104,7 @@ export const Banner = styled.div`
     align-items: center;
     justify-content: flex-start;
     height: initial;
-    padding-bottom: 30px;
+    padding-bottom: 0px;
     padding-top: 50px;
   }
 `;
@@ -124,6 +127,12 @@ export const Picture = styled.img<{ size?: string }>`
   z-index: 1000;
   height: 500px;
   border-radius: 300px;
+  @media screen and (max-width: 992px) {
+    border-radius: initial;
+    height: initial;
+    width: 100vw;
+    max-width: 600px;
+  }
 `;
 
 export const SocialContainer = styled.div<{ loaded?: boolean; delay?: string | number }>`

@@ -46,12 +46,16 @@ const Home = () => {
           url: 'https://baraky.com.br',
           title: pageTitle,
           description: pageDescription,
-          images: [{ url: 'https://baraky.com.br/working-robot.png' }],
+          images: [
+            { url: 'https://baraky.com.br/thumb.png', alt: 'Website Thumbnail' },
+            { url: 'https://baraky.com.br/portrait.png', alt: 'Baraky Portrait' },
+            { url: 'https://baraky.com.br/working-robot.png', alt: 'Working Robot' },
+          ],
           siteName: pageTitle,
         }}
         twitter={{
-          handle: '@handle',
-          site: '@site',
+          handle: '@jfbaraky',
+          site: '@jfbaraky',
           cardType: 'summary_large_image',
         }}
       />
